@@ -5,17 +5,24 @@
     <title>My HTML File</title>
     <link rel="stylesheet" href="app.css" />
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-translate/angular-translate.js"></script>
 	<script src="app.js"></script>
   </head>
   <body>
-	<div ng-controller="Ctrl"  class="box">
-		<div class="title">
-			<h2>Welcome to ...</h2>
+	<div ng-controller="Ctrl" >
+		<div class="box">
+			<div class="title">
+				<h2>{{ 'HEADLINE' | translate }}</h2>
+			</div>
+			<div class="info">
+				<p>{{'NAME' | translate }} : <input type="text" ng-model="name"></p>
+				<button ng-click="validate()" name="welcome">Zoom in</button>
+				<button ng-click="cancel()" name="cancel">Cancel</button>
+			</div>
 		</div>
-		<div class="info">
-			<p>Name : <input type="text" ng-model="name"></p>
-			<button ng-click="validate()" name="welcome">Zoom in</button>
-			<button ng-click="cancel()" name="cancel">Cancel</button>
+		<div class="languagebuttons">
+			<button ng-click="changeLanguage('de')" translate="BUTTON_LANG_DE"></button>
+			<button ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN"></button>
 		</div>
 	</div>
   </body>

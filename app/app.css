@@ -16,7 +16,6 @@ body {
 	
 }
 
-
 button {
     background-color: white ; /* Green */
     text-align: center;
@@ -33,5 +32,12 @@ button {
 	position:absoloute ;
 	left : 50% ;
 	top : 0%
+}
+
+.languagebuttons {
+	position:absolute;
+	top:0% ;
+	right:0%
+	
 }
 
