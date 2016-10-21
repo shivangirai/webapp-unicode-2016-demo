@@ -20,27 +20,36 @@ var translationsDE = {
    hello : 'Hallo' ,
    errorMsg : 'Bitte geben Sie den Namen'
 }
-var app = angular.module('myApp' , ['pascalprecht.translate']);
 
+
+
+
+var app = angular.module('myApp', ['pascalprecht.translate']);
+app.controller('Ctrl', ['$scope', function ($scope) {
+ }]);
+
+ 
 app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.translations('en', translationsEN);
   $translateProvider.translations('de', translationsDE);
   $translateProvider.determinePreferredLanguage();
   $translateProvider.fallbackLanguage('en');
 }]);
-
-app.controller('Ctrl', ['$scope', function ( $scope) {
+ 
+app.controller('Ctrl', ['$translate', '$scope', '$filter', function ($translate, $scope, $filter) {
+ 
  
   $scope.changeLanguage = function (langKey) {
     $translate.use(langKey);
   };
- 
+  
   $scope.validate = function(){
 	  if(typeof $scope.name == 'undefined' || $scope.name == '' ){
-		  alert('Please enter name !!') ;
+		  alert($filter('translate')('errorMsg')) ;
 		  return ;
 	  }
-	  alert('Hello '+ $scope.name ) ;
+		var hello = $filter('translate')('hello') ; 
+		alert( $filter('translate')('hello') + ' ' + $scope.name) ;
   }
   
   $scope.cancel= function(){
