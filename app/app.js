@@ -31,7 +31,7 @@ app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.fallbackLanguage('en');
 }]);// Config Addition
 
-app.controller('Ctrl', ['$translate', '$scope', function ( $translate ,  $scope  ) {
+app.controller('Ctrl', ['$translate', '$scope', '$filter' ,  function ( $translate ,  $scope   , $filter) {
  
    $scope.changeLanguage = function (langKey) {
     $translate.use(langKey);
@@ -39,10 +39,10 @@ app.controller('Ctrl', ['$translate', '$scope', function ( $translate ,  $scope 
  
   $scope.validate = function(){
 	  if(typeof $scope.name == 'undefined' || $scope.name == '' ){
-		  alert('Please enter name !!') ;
+		  alert($filter('translate')('errorMsg')) ;
 		  return ;
 	  }
-	  alert('Hello '+ $scope.name ) ;
+	  alert($filter('translate')('hello') + ' ' + $scope.name ) ;
   }
   
   $scope.cancel= function(){

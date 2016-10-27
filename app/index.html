@@ -12,10 +12,10 @@
 	<div ng-controller="Ctrl" >
 		<div class="box">
 			<div class="title">
-				<h2>Welcome to Demo !!</h2>
+				<h2>{{ 'HEADLINE' | translate }}</h2>
 			</div>
 			<div class="info">
-				<p>Name : <input type="text" ng-model="name"></p>
+				<p>{{'NAME' | translate }} : <input type="text" ng-model="name"></p>
 				<button ng-click="validate()" name="welcome" translate="ZoomIn">Zoom in</button>
 				<button ng-click="cancel()" name="cancel" translate="cancel">Cancel</button>
 			</div>
