@@ -2,6 +2,7 @@ body {
   padding-top: 20px;
   background-image: url("images.jpg ");
   background-size: cover ;
+  font-family: Arial ;
 }
 
 .box
@@ -13,7 +14,7 @@ body {
     width: 700px;
 	background-color : rgba(50,50,50,.8) ;
 	color: white;
-	
+	padding-left: 10px ;
 }
 
 button {
